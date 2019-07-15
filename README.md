@@ -23,5 +23,5 @@ cp docker-compose.override.yml.dist docker-compose.override.yml
 ```bash
 cp .env.dist .env
 docker-compose up -d
-docker-compose exec --user=application web composer install
+docker-compose exec --user=application web bash
 ```
