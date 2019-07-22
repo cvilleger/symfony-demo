@@ -15,8 +15,11 @@ class ArticleController extends AbstractController
     {
         $articleRepository = $this->getDoctrine()->getManager()->getRepository(Article::class);
 
+        $articleRepository->findBy(['published' => true]);
+
         return $this->render('article/index.html.twig', [
-            'articles' => $articleRepository->findAll(),
+            'articlesPublished' => $articleRepository->findBy(['published' => true]),
+            'articlesNotPublished' => $articleRepository->findBy(['published' => false]),
         ]);
     }
 }
